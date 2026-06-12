@@ -15,7 +15,7 @@ end tb_filter_ma;
 architecture behavioral of tb_filter_ma is
 
     constant Nbf          : integer := 8;
-    constant log2NFIFOf   : integer := 5;   -- finestra = 128 campioni
+    constant log2NFIFOf   : integer := 7;   -- finestra = 128 campioni
     constant N_SAMPLES    : integer := 4096;
 
     component filter_ma is
@@ -31,17 +31,10 @@ architecture behavioral of tb_filter_ma is
     signal clks       : std_logic;
     signal rsts       : std_logic;
     signal ens        : std_logic;
-    signal din_slv    : std_logic_vector(Nbf-1 downto 0) := (others => '0');
     signal din        : unsigned(Nbf-1 downto 0);
     signal dout       : unsigned(Nbf+log2NFIFOf-1 downto 0);
-    signal dout_slv   : std_logic_vector(Nbf+log2NFIFOf-1 downto 0);
 
 begin
-
-    -- Conversioni di tipo
-    din     <= unsigned(din_slv);
-    dout_slv <= std_logic_vector(dout);
-
     -- Clock: periodo 20 ns
     clk_proc: process
     begin
@@ -79,7 +72,7 @@ begin
         while n < N_SAMPLES loop
             readline(file_in, vline);
             read(vline, vdata);
-            din_slv <= vdata;
+            din <= unsigned(vdata);
             wait for 20 ns;
             n := n + 1;
         end loop;
@@ -96,12 +89,11 @@ begin
         wait for 40 ns;  -- attende fine reset + primo campione valido
         while n < N_SAMPLES loop
             wait for 20 ns;
-            write(vline, dout_slv, right, Nbf+log2NFIFOf);
+            write(vline, std_logic_vector(dout), right, Nbf+log2NFIFOf);
             writeline(file_out, vline);
             n := n + 1;
         end loop;
         file_close(file_out);
         wait;
     end process;
-
 end behavioral;

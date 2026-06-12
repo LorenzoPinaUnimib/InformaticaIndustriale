@@ -1,7 +1,7 @@
-Vivado Simulator v2025.2
+Vivado Simulator v2025.2.1
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: D:/vivado/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot tb_ema_cascade_behav xil_defaultlib.tb_ema_cascade -log elaborate.log 
+Running: C:/AMDDesignTools/2025.2.1/Vivado/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot tb_filter_ma_behav xil_defaultlib.tb_filter_ma -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Completed static elaboration
@@ -13,6 +13,12 @@ Compiling package std.textio
 Compiling package ieee.std_logic_1164
 Compiling package ieee.numeric_std
 Compiling package ieee.std_logic_textio
-Compiling architecture behavioral of entity xil_defaultlib.EMA_filter [\EMA_filter(width=11)\]
-Compiling architecture behavioral of entity xil_defaultlib.tb_ema_cascade
-Built simulation snapshot tb_ema_cascade_behav
+Compiling architecture behavioral of entity xil_defaultlib.fifo [\fifo(nb=8,log2nfifo=7)\]
+Compiling architecture behavioral of entity xil_defaultlib.multiadder [\multiadder(nb=8,log2nfifo=7)\]
+Compiling architecture behavioral of entity xil_defaultlib.dff [dff_default]
+Compiling architecture structural of entity xil_defaultlib.reg_en_rst [\reg_en_rst(nbit=15)\]
+Compiling architecture structural of entity xil_defaultlib.accumulator [\accumulator(nb=8,log2nfifo=7)\]
+Compiling architecture structural of entity xil_defaultlib.divide_by [\divide_by(nb=8,log2nfifo=7)\]
+Compiling architecture structural of entity xil_defaultlib.filter_ma [\filter_ma(nbf=8,log2nfifof=7)\]
+Compiling architecture behavioral of entity xil_defaultlib.tb_filter_ma
+Built simulation snapshot tb_filter_ma_behav
