@@ -16,23 +16,26 @@ entity multiadder is
         log2NFIFO : integer
     );
     port(
-        datain_fifo         : in  signed(Nb-1 downto 0);
-        dataout_fifo        : in  signed(Nb-1 downto 0);
-        dataout_accumulator : in  signed(Nb+log2NFIFO-1 downto 0);
-        dataout             : out signed(Nb+log2NFIFO-1 downto 0)
+        datain_fifo         : in  unsigned(Nb-1 downto 0);
+        dataout_fifo        : in  unsigned(Nb-1 downto 0);
+        dataout_accumulator : in  unsigned(Nb+log2NFIFO-1 downto 0);
+        dataout             : out unsigned(Nb+log2NFIFO-1 downto 0)
     );
 end multiadder;
 
 architecture behavioral of multiadder is
 
-    signal datain_fifo_large  : signed(Nb+log2NFIFO-1 downto 0);
-    signal dataout_fifo_large : signed(Nb+log2NFIFO-1 downto 0);
-    signal mask0              : signed(log2NFIFO-1 downto 0) := (others => '0');
+    signal datain_fifo_large  : unsigned(Nb+log2NFIFO-1 downto 0);
+    signal dataout_fifo_large : unsigned(Nb+log2NFIFO-1 downto 0);
+    signal mask0              : unsigned(log2NFIFO-1 downto 0) := (others => '0');
 
 begin
 
-   datain_fifo_large  <=  (log2NFIFO-1 downto 0 => datain_fifo(Nb-1))  & datain_fifo;
-   dataout_fifo_large <=  (log2NFIFO-1 downto 0 => dataout_fifo(Nb-1)) & dataout_fifo;
+   -- datain_fifo_large  <=  (log2NFIFO-1 downto 0 => datain_fifo(Nb-1))  & datain_fifo;
+   -- dataout_fifo_large <=  (log2NFIFO-1 downto 0 => dataout_fifo(Nb-1)) & dataout_fifo;
+   
+   datain_fifo_large  <=  mask0  & datain_fifo;
+   dataout_fifo_large <=  mask0 & dataout_fifo;
     -- Equazione ricorsiva del filtro a media mobile
     dataout <= dataout_accumulator + datain_fifo_large - dataout_fifo_large;
 end behavioral;

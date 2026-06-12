@@ -24,7 +24,7 @@ use STD.textio.all;
 use ieee.std_logic_textio.all;
 
 -- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
+-- arithmetic functions with unsigned or Unsigned values
 --use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if instantiating

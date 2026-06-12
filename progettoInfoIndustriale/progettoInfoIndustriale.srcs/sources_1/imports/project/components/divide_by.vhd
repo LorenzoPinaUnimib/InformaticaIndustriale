@@ -18,8 +18,8 @@ entity divide_by is
         clk     : in  std_logic;
         en      : in  std_logic;
         rst     : in  std_logic;
-        datain  : in  signed(Nb+log2NFIFO-1 downto 0);
-        dataout : out signed(Nb+log2NFIFO-1 downto 0)
+        datain  : in  unsigned(Nb+log2NFIFO-1 downto 0);
+        dataout : out unsigned(Nb+log2NFIFO-1 downto 0)
     );
 end divide_by;
 
@@ -42,7 +42,7 @@ architecture structural of divide_by is
 
     -- Shift aritmetico combinatorio: divide per 2^log2NFIFO
     -- shift_right propaga il bit di segno (MSB) sui bit liberati
-    signal datain_shifted : signed(Nacc-1 downto 0);
+    signal datain_shifted : unsigned(Nacc-1 downto 0);
     signal reg_out        : std_logic_vector(Nacc-1 downto 0);
 
 begin
@@ -59,5 +59,5 @@ begin
             dataout => reg_out
         );
 
-    dataout <= signed(reg_out);
+    dataout <= unsigned(reg_out);
 end structural;

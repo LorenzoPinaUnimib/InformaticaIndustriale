@@ -21,8 +21,8 @@ entity filter_ma is
         clk     : in  std_logic;
         en      : in  std_logic;
         rst     : in  std_logic;
-        datain  : in  signed(Nbf-1 downto 0);
-        dataout : out signed(Nbf+log2NFIFOf-1 downto 0)
+        datain  : in  unsigned(Nbf-1 downto 0);
+        dataout : out unsigned(Nbf+log2NFIFOf-1 downto 0)
     );
 end filter_ma;
 
@@ -31,35 +31,35 @@ architecture structural of filter_ma is
     component fifo is
         generic(Nb: integer; log2NFIFO: integer);
         port(clk: in std_logic; en: in std_logic; rst: in std_logic;
-             din: in signed(Nb-1 downto 0); dout: out signed(Nb-1 downto 0));
+             din: in unsigned(Nb-1 downto 0); dout: out unsigned(Nb-1 downto 0));
     end component;
 
     component multiadder is
         generic(Nb: integer; log2NFIFO: integer);
-        port(datain_fifo: in signed(Nb-1 downto 0);
-             dataout_fifo: in signed(Nb-1 downto 0);
-             dataout_accumulator: in signed(Nb+log2NFIFO-1 downto 0);
-             dataout: out signed(Nb+log2NFIFO-1 downto 0));
+        port(datain_fifo: in unsigned(Nb-1 downto 0);
+             dataout_fifo: in unsigned(Nb-1 downto 0);
+             dataout_accumulator: in unsigned(Nb+log2NFIFO-1 downto 0);
+             dataout: out unsigned(Nb+log2NFIFO-1 downto 0));
     end component;
 
     component accumulator is
         generic(Nb: integer; log2NFIFO: integer);
         port(clk: in std_logic; en: in std_logic; rst: in std_logic;
-             datain: in signed(Nb+log2NFIFO-1 downto 0);
-             dataout: out signed(Nb+log2NFIFO-1 downto 0));
+             datain: in unsigned(Nb+log2NFIFO-1 downto 0);
+             dataout: out unsigned(Nb+log2NFIFO-1 downto 0));
     end component;
 
     component divide_by is
         generic(Nb: integer; log2NFIFO: integer);
         port(clk: in std_logic; en: in std_logic; rst: in std_logic;
-             datain: in signed(Nb+log2NFIFO-1 downto 0);
-             dataout: out signed(Nb+log2NFIFO-1 downto 0));
+             datain: in unsigned(Nb+log2NFIFO-1 downto 0);
+             dataout: out unsigned(Nb+log2NFIFO-1 downto 0));
     end component;
 
     -- Segnali di collegamento interni
-    signal dout_fifo        : signed(Nbf-1 downto 0);
-    signal dout_multiadder  : signed(Nbf+log2NFIFOf-1 downto 0);
-    signal dout_accumulator : signed(Nbf+log2NFIFOf-1 downto 0);
+    signal dout_fifo        : unsigned(Nbf-1 downto 0);
+    signal dout_multiadder  : unsigned(Nbf+log2NFIFOf-1 downto 0);
+    signal dout_accumulator : unsigned(Nbf+log2NFIFOf-1 downto 0);
 
 begin
 

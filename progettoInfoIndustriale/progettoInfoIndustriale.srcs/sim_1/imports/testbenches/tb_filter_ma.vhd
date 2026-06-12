@@ -21,8 +21,8 @@ architecture behavioral of tb_filter_ma is
     component filter_ma is
         generic(Nbf: integer; log2NFIFOf: integer);
         port(clk: in std_logic; en: in std_logic; rst: in std_logic;
-             datain: in signed(Nbf-1 downto 0);
-             dataout: out signed(Nbf+log2NFIFOf-1 downto 0));
+             datain: in unsigned(Nbf-1 downto 0);
+             dataout: out unsigned(Nbf+log2NFIFOf-1 downto 0));
     end component;
 
     file file_in  : text;
@@ -32,14 +32,14 @@ architecture behavioral of tb_filter_ma is
     signal rsts       : std_logic;
     signal ens        : std_logic;
     signal din_slv    : std_logic_vector(Nbf-1 downto 0) := (others => '0');
-    signal din        : signed(Nbf-1 downto 0);
-    signal dout       : signed(Nbf+log2NFIFOf-1 downto 0);
+    signal din        : unsigned(Nbf-1 downto 0);
+    signal dout       : unsigned(Nbf+log2NFIFOf-1 downto 0);
     signal dout_slv   : std_logic_vector(Nbf+log2NFIFOf-1 downto 0);
 
 begin
 
     -- Conversioni di tipo
-    din     <= signed(din_slv);
+    din     <= unsigned(din_slv);
     dout_slv <= std_logic_vector(dout);
 
     -- Clock: periodo 20 ns

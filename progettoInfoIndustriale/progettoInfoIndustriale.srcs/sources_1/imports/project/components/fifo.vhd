@@ -24,7 +24,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 use ieee.numeric_std.all;
 
 -- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
+-- arithmetic functions with unsigned or Unsigned values
 --use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if instantiating
@@ -37,14 +37,14 @@ generic (
   Nb: integer;
   log2NFIFO: integer);
 port (en, rst, clk: in std_logic;
-din: in signed(Nb-1 downto 0);
-dout: out signed(Nb-1 downto 0) );
+din: in unsigned(Nb-1 downto 0);
+dout: out unsigned(Nb-1 downto 0) );
 end fifo;
 
 architecture Behavioral of fifo is 
 
 constant NFIFO: integer:=2**log2NFIFO;
-type fifo_output_ALL is array (NFIFO-1 downto 0) of signed(Nb-1 downto 0);
+type fifo_output_ALL is array (NFIFO-1 downto 0) of unsigned(Nb-1 downto 0);
 
 signal fifo_output_ALLs: fifo_output_ALL;
 

@@ -24,7 +24,7 @@ use STD.textio.all;
 use ieee.std_logic_textio.all;
 
 -- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
+-- arithmetic functions with unsigned or Unsigned values
 --use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if instantiating
@@ -45,8 +45,8 @@ generic (
   Nb: integer:=numb;
   log2NFIFO: integer:=6);
 port (en, rst, clk: in std_logic;
-din: in signed(Nb-1 downto 0);
-dout: out signed(Nb-1 downto 0) );
+din: in unsigned(Nb-1 downto 0);
+dout: out unsigned(Nb-1 downto 0) );
 end component;
 
 component counter is
@@ -59,7 +59,7 @@ component counter is
 
 signal clks, rsts, ens: std_logic;
 signal dinfifo, dinfifo1: std_logic_vector(numb-1 downto 0);
-signal doutfifo: signed(numb-1 downto 0);
+signal doutfifo: unsigned(numb-1 downto 0);
 file file_to_be_read : text;
 begin
 
@@ -83,7 +83,7 @@ end process;
 
 --.
 -- dut_counter: counter port map ('1', clks, dinfifo);
-dut_fifo: fifo port map (ens, rsts, clks, signed(dinfifo), doutfifo);
+dut_fifo: fifo port map (ens, rsts, clks, unsigned(signed(dinfifo)), doutfifo);
 
 process(clks)
 begin

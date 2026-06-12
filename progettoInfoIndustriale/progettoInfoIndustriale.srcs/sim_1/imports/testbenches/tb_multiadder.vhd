@@ -17,16 +17,16 @@ architecture behavioral of tb_multiadder is
 
     component multiadder is
         generic(Nb: integer; log2NFIFO: integer);
-        port(datain_fifo: in signed(Nb-1 downto 0);
-             dataout_fifo: in signed(Nb-1 downto 0);
-             dataout_accumulator: in signed(Nb+log2NFIFO-1 downto 0);
-             dataout: out signed(Nb+log2NFIFO-1 downto 0));
+        port(datain_fifo: in unsigned(Nb-1 downto 0);
+             dataout_fifo: in unsigned(Nb-1 downto 0);
+             dataout_accumulator: in unsigned(Nb+log2NFIFO-1 downto 0);
+             dataout: out unsigned(Nb+log2NFIFO-1 downto 0));
     end component;
 
-    signal s_din_fifo  : signed(Nb-1 downto 0)            := (others => '0');
-    signal s_dout_fifo : signed(Nb-1 downto 0)            := (others => '0');
-    signal s_acc       : signed(Nb+log2NFIFO-1 downto 0)  := (others => '0');
-    signal s_out       : signed(Nb+log2NFIFO-1 downto 0);
+    signal s_din_fifo  : unsigned(Nb-1 downto 0)            := (others => '0');
+    signal s_dout_fifo : unsigned(Nb-1 downto 0)            := (others => '0');
+    signal s_acc       : unsigned(Nb+log2NFIFO-1 downto 0)  := (others => '0');
+    signal s_out       : unsigned(Nb+log2NFIFO-1 downto 0);
 
 begin
 
@@ -40,27 +40,27 @@ begin
     stim: process
     begin
         -- Test 1: 0 + 10 - 0 = 10
-        s_acc       <= to_signed(0,   Nb+log2NFIFO);
-        s_din_fifo  <= to_signed(10,  Nb);
-        s_dout_fifo <= to_signed(0,   Nb);
+        s_acc       <= to_unsigned(0,   Nb+log2NFIFO);
+        s_din_fifo  <= to_unsigned(10,  Nb);
+        s_dout_fifo <= to_unsigned(0,   Nb);
         wait for 20 ns;  -- atteso: 10
 
         -- Test 2: 100 + 5 - 3 = 102
-        s_acc       <= to_signed(100, Nb+log2NFIFO);
-        s_din_fifo  <= to_signed(5,   Nb);
-        s_dout_fifo <= to_signed(3,   Nb);
+        s_acc       <= to_unsigned(100, Nb+log2NFIFO);
+        s_din_fifo  <= to_unsigned(5,   Nb);
+        s_dout_fifo <= to_unsigned(3,   Nb);
         wait for 20 ns;  -- atteso: 102
 
         -- Test 3: valori negativi  50 + (-2) - 8 = 40
-        s_acc       <= to_signed(50,  Nb+log2NFIFO);
-        s_din_fifo  <= to_signed(-2,  Nb);
-        s_dout_fifo <= to_signed(8,   Nb);
+        s_acc       <= to_unsigned(50,  Nb+log2NFIFO);
+        s_din_fifo  <= to_unsigned(-2,  Nb);
+        s_dout_fifo <= to_unsigned(8,   Nb);
         wait for 20 ns;  -- atteso: 40
 
         -- Test 4: accumulatore negativo  -64 + 1 - 1 = -64
-        s_acc       <= to_signed(-64, Nb+log2NFIFO);
-        s_din_fifo  <= to_signed(1,   Nb);
-        s_dout_fifo <= to_signed(1,   Nb);
+        s_acc       <= to_unsigned(-64, Nb+log2NFIFO);
+        s_din_fifo  <= to_unsigned(1,   Nb);
+        s_dout_fifo <= to_unsigned(1,   Nb);
         wait for 20 ns;  -- atteso: -64
 
         wait;

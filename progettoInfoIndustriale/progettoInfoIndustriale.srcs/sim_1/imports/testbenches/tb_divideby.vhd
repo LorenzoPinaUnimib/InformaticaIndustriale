@@ -20,8 +20,8 @@ architecture behavioral of tb_divide_by is
     component divide_by is
         generic(Nb: integer; log2NFIFO: integer);
         port(clk: in std_logic; en: in std_logic; rst: in std_logic;
-             datain: in signed(Nb+log2NFIFO-1 downto 0);
-             dataout: out signed(Nb+log2NFIFO-1 downto 0));
+             datain: in unsigned(Nb+log2NFIFO-1 downto 0);
+             dataout: out unsigned(Nb+log2NFIFO-1 downto 0));
     end component;
 
     component counter is
@@ -34,8 +34,8 @@ architecture behavioral of tb_divide_by is
     signal rsts    : std_logic;
     signal ens     : std_logic;
     signal cnt_out : std_logic_vector(Nacc-1 downto 0);
-    signal datain  : signed(Nacc-1 downto 0);
-    signal dataout : signed(Nacc-1 downto 0);
+    signal datain  : unsigned(Nacc-1 downto 0);
+    signal dataout : unsigned(Nacc-1 downto 0);
 
 begin
 
@@ -61,7 +61,7 @@ begin
         generic map(Nb => Nacc)
         port map(T => '1', clk => clks, OUT_COUNT => cnt_out);
 
-    datain <= signed(cnt_out);
+    datain <= unsigned(cnt_out);
 
     -- DUT: dataout = datain >> log2NFIFO (shift aritmetico)
     -- Quando datain raggiunge 64 (0x40), dataout deve valere 1

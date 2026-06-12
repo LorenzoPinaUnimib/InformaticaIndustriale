@@ -16,8 +16,8 @@ entity accumulator is
         clk     : in  std_logic;
         en      : in  std_logic;
         rst     : in  std_logic;
-        datain  : in  signed(Nb+log2NFIFO-1 downto 0);
-        dataout : out signed(Nb+log2NFIFO-1 downto 0)
+        datain  : in  unsigned(Nb+log2NFIFO-1 downto 0);
+        dataout : out unsigned(Nb+log2NFIFO-1 downto 0)
     );
 end accumulator;
 
@@ -51,5 +51,5 @@ begin
             dataout => reg_out
         );
 
-    dataout <= signed(reg_out);
+    dataout <= unsigned(reg_out);
 end structural;

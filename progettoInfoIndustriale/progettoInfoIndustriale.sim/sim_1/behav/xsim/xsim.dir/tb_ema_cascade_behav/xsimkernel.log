@@ -1,0 +1,4 @@
+Running: xsim.dir/tb_ema_cascade_behav/xsimk.exe -simmode gui -wdb tb_ema_cascade_behav.wdb -simrunnum 0 -socket 53894
+Design successfully loaded
+Design Loading Memory Usage: 11120 KB (Peak: 11120 KB)
+Design Loading CPU Usage: 0 ms
