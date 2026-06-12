@@ -1,0 +1,11 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../progettoInfoIndustriale.srcs/sources_1/imports/project/components/COUNTER.vhd" \
+"../../../../progettoInfoIndustriale.srcs/sources_1/imports/project/primitives/dff.vhd" \
+"../../../../progettoInfoIndustriale.srcs/sources_1/imports/project/components/divide_by.vhd" \
+"../../../../progettoInfoIndustriale.srcs/sources_1/imports/project/primitives/reg_en_rst.vhd" \
+"../../../../progettoInfoIndustriale.srcs/sources_1/imports/project/primitives/tff.vhd" \
+"../../../../progettoInfoIndustriale.srcs/sim_1/imports/testbenches/tb_divideby.vhd" \
+
+# Do not sort compile order
+nosort

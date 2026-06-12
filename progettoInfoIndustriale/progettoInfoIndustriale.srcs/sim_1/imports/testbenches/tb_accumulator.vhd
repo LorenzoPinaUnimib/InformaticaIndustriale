@@ -38,7 +38,6 @@ architecture behavioral of tb_accumulator is
     signal dataout : unsigned(Nacc-1 downto 0);
 
 begin
-
     -- Clock: periodo 20 ns
     clk_process: process
     begin

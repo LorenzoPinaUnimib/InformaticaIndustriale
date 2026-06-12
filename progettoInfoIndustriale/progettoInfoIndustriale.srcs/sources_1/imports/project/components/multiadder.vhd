@@ -30,12 +30,9 @@ architecture behavioral of multiadder is
     signal mask0              : unsigned(log2NFIFO-1 downto 0) := (others => '0');
 
 begin
-
-   -- datain_fifo_large  <=  (log2NFIFO-1 downto 0 => datain_fifo(Nb-1))  & datain_fifo;
-   -- dataout_fifo_large <=  (log2NFIFO-1 downto 0 => dataout_fifo(Nb-1)) & dataout_fifo;
-   
-   datain_fifo_large  <=  mask0  & datain_fifo;
-   dataout_fifo_large <=  mask0 & dataout_fifo;
+    datain_fifo_large  <=  mask0 & datain_fifo;
+    dataout_fifo_large <=  mask0 & dataout_fifo;
+    
     -- Equazione ricorsiva del filtro a media mobile
     dataout <= dataout_accumulator + datain_fifo_large - dataout_fifo_large;
 end behavioral;

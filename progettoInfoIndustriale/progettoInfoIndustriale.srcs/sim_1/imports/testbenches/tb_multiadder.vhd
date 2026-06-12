@@ -43,27 +43,24 @@ begin
         s_acc       <= to_unsigned(0,   Nb+log2NFIFO);
         s_din_fifo  <= to_unsigned(10,  Nb);
         s_dout_fifo <= to_unsigned(0,   Nb);
-        wait for 20 ns;  -- atteso: 10
+        wait for 20 ns;
 
         -- Test 2: 100 + 5 - 3 = 102
         s_acc       <= to_unsigned(100, Nb+log2NFIFO);
         s_din_fifo  <= to_unsigned(5,   Nb);
         s_dout_fifo <= to_unsigned(3,   Nb);
-        wait for 20 ns;  -- atteso: 102
+        wait for 20 ns;
 
-        -- Test 3: valori negativi  50 + (-2) - 8 = 40
+        -- Test 3: 50 + 254 - 8 = 296
         s_acc       <= to_unsigned(50,  Nb+log2NFIFO);
-        s_din_fifo  <= to_unsigned(-2,  Nb);
+        s_din_fifo  <= to_unsigned(254,  Nb);
         s_dout_fifo <= to_unsigned(8,   Nb);
-        wait for 20 ns;  -- atteso: 40
+        wait for 20 ns;
 
-        -- Test 4: accumulatore negativo  -64 + 1 - 1 = -64
-        s_acc       <= to_unsigned(-64, Nb+log2NFIFO);
+        -- Test 4: 60 + 1 - 15 = 46
+        s_acc       <= to_unsigned(60, Nb+log2NFIFO);
         s_din_fifo  <= to_unsigned(1,   Nb);
-        s_dout_fifo <= to_unsigned(1,   Nb);
-        wait for 20 ns;  -- atteso: -64
-
-        wait;
+        s_dout_fifo <= to_unsigned(15,   Nb);
+        wait for 20 ns;
     end process;
-
 end behavioral;

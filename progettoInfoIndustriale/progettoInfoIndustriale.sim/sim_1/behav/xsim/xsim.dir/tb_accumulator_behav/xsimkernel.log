@@ -1,7 +1,7 @@
-Running: xsim.dir/tb_accumulator_behav/xsimk.exe -simmode gui -wdb tb_accumulator_behav.wdb -simrunnum 0 -socket 62314
+Running: xsim.dir/tb_accumulator_behav/xsimk.exe -simmode gui -wdb tb_accumulator_behav.wdb -simrunnum 0 -socket 52223
 Design successfully loaded
-Design Loading Memory Usage: 11164 KB (Peak: 11164 KB)
+Design Loading Memory Usage: 19152 KB (Peak: 19152 KB)
 Design Loading CPU Usage: 62 ms
 Simulation completed
-Simulation Memory Usage: 12744 KB (Peak: 12744 KB)
-Simulation CPU Usage: 77 ms
+Simulation Memory Usage: 19988 KB (Peak: 19988 KB)
+Simulation CPU Usage: 218 ms

@@ -26,7 +26,6 @@ architecture behavioral of tb_ema_cascade is
     signal clks, rsts : std_logic := '0';
     signal din_raw    : signed(WIDTH-1 downto 0) := (others => '0');
     signal sig_mid    : signed(WIDTH-1 downto 0);
-    signal sig_mid2    : signed(WIDTH-1 downto 0);
 
     signal dout_final : signed(WIDTH-1 downto 0);
     
@@ -50,8 +49,6 @@ begin
 
     -- Istanza Filtro 2
     ema2: EMA_filter generic map(WIDTH => WIDTH, K => K)
-                    port map(clk => clks, rst => rsts, data_in => sig_mid, data_out => sig_mid2);
-    ema3: EMA_filter generic map(WIDTH => WIDTH, K => K)
                     port map(clk => clks, rst => rsts, data_in => sig_mid, data_out => dout_final);
 
     -- Lettura file

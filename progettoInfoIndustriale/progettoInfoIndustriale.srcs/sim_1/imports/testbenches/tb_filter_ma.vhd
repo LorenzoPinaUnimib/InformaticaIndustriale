@@ -15,7 +15,7 @@ end tb_filter_ma;
 architecture behavioral of tb_filter_ma is
 
     constant Nbf          : integer := 8;
-    constant log2NFIFOf   : integer := 7;   -- finestra = 128 campioni
+    constant log2NFIFOf   : integer := 5;   -- finestra = 128 campioni
     constant N_SAMPLES    : integer := 4096;
 
     component filter_ma is
