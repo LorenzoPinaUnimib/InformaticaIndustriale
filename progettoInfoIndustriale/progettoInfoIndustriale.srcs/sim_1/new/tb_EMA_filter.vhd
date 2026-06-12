@@ -9,25 +9,25 @@ end tb_ema_cascade;
 
 architecture behavioral of tb_ema_cascade is
 
-    constant WIDTH      : integer := 8; -- Larghezza dati interna
     constant INPUT_W    : integer := 8;  -- Larghezza segnale ingresso da file
     constant K          : integer := 3;  -- Forza dello shift
     constant N_SAMPLES  : integer := 4096;
+    constant WIDTH      : integer := INPUT_W+K; -- Larghezza dati interna
 
     -- Componente EMA (quello definito nel messaggio precedente)
     component EMA_filter is
         generic (WIDTH : integer; K : integer);
         port (clk, rst : in std_logic;
-              data_in  : in signed(WIDTH-1 downto 0);
-              data_out : out signed(WIDTH-1 downto 0));
+              data_in  : in unsigned(WIDTH-1 downto 0);
+              data_out : out unsigned(WIDTH-1 downto 0));
     end component;
 
     -- Segnali
     signal clks, rsts : std_logic := '0';
-    signal din_raw    : signed(WIDTH-1 downto 0) := (others => '0');
-    signal sig_mid    : signed(WIDTH-1 downto 0);
+    signal din_raw    : unsigned(WIDTH-1 downto 0) := (others => '0');
+    signal sig_mid    : unsigned(WIDTH-1 downto 0);
 
-    signal dout_final : signed(WIDTH-1 downto 0);
+    signal dout_final : unsigned(WIDTH-1 downto 0);
     
     file file_in, file_out : text;
 
@@ -62,7 +62,7 @@ begin
             readline(file_in, vline);
             read(vline, vdata);
             -- Estendiamo il dato a 16 bit per mantenere precisione interna
-            din_raw <= resize(signed(vdata), WIDTH);
+            din_raw <= (resize(unsigned(vdata), WIDTH));
             wait for 20 ns;
             n := n + 1;
         end loop;
