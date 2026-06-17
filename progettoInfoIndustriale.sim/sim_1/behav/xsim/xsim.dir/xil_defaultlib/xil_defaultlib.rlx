@@ -1,14 +1,12 @@
 0.7
 2020.2
-Nov 14 2025
-19:37:27
-D:/github/InformaticaIndustriale/progettoInfoIndustriale.srcs/sim_1/imports/testbenches/tb_filter_ma.vhd,1781296548,vhdl,,,,tb_filter_ma,,,,,,,,
-D:/github/InformaticaIndustriale/progettoInfoIndustriale.srcs/sim_1/new/tb_EMA_filter.vhd,1781291613,vhdl,,,,tb_ema_cascade,,,,,,,,
-D:/github/InformaticaIndustriale/progettoInfoIndustriale.srcs/sources_1/imports/project/components/accumulator.vhd,1781291613,vhdl,,,,accumulator,,,,,,,,
-D:/github/InformaticaIndustriale/progettoInfoIndustriale.srcs/sources_1/imports/project/components/divide_by.vhd,1781291613,vhdl,,,,divide_by,,,,,,,,
-D:/github/InformaticaIndustriale/progettoInfoIndustriale.srcs/sources_1/imports/project/components/fifo.vhd,1781291613,vhdl,,,,fifo,,,,,,,,
-D:/github/InformaticaIndustriale/progettoInfoIndustriale.srcs/sources_1/imports/project/components/filter_ma.vhd,1781291613,vhdl,,,,filter_ma,,,,,,,,
-D:/github/InformaticaIndustriale/progettoInfoIndustriale.srcs/sources_1/imports/project/components/multiadder.vhd,1781291613,vhdl,,,,multiadder,,,,,,,,
-D:/github/InformaticaIndustriale/progettoInfoIndustriale.srcs/sources_1/imports/project/primitives/dff.vhd,1781291613,vhdl,,,,dff,,,,,,,,
-D:/github/InformaticaIndustriale/progettoInfoIndustriale.srcs/sources_1/imports/project/primitives/reg_en_rst.vhd,1781291613,vhdl,,,,reg_en_rst,,,,,,,,
-D:/github/InformaticaIndustriale/progettoInfoIndustriale.srcs/sources_1/new/EMA_filter.vhd,1781291613,vhdl,,,,ema_filter,,,,,,,,
+Mar 19 2026
+19:50:51
+Z:/InformaticaIndustriale/progettoInfoIndustriale.srcs/sim_1/imports/testbenches/tb_filter_ma.vhd,1781641805,vhdl,,,,tb_filter_ma,,,,,,,,
+Z:/InformaticaIndustriale/progettoInfoIndustriale.srcs/sources_1/imports/project/components/accumulator.vhd,1781274158,vhdl,,,,accumulator,,,,,,,,
+Z:/InformaticaIndustriale/progettoInfoIndustriale.srcs/sources_1/imports/project/components/divide_by.vhd,1781280584,vhdl,,,,divide_by,,,,,,,,
+Z:/InformaticaIndustriale/progettoInfoIndustriale.srcs/sources_1/imports/project/components/fifo.vhd,1781274158,vhdl,,,,fifo,,,,,,,,
+Z:/InformaticaIndustriale/progettoInfoIndustriale.srcs/sources_1/imports/project/components/filter_ma.vhd,1781274158,vhdl,,,,filter_ma,,,,,,,,
+Z:/InformaticaIndustriale/progettoInfoIndustriale.srcs/sources_1/imports/project/components/multiadder.vhd,1781278016,vhdl,,,,multiadder,,,,,,,,
+Z:/InformaticaIndustriale/progettoInfoIndustriale.srcs/sources_1/imports/project/primitives/dff.vhd,1781274158,vhdl,,,,dff,,,,,,,,
+Z:/InformaticaIndustriale/progettoInfoIndustriale.srcs/sources_1/imports/project/primitives/reg_en_rst.vhd,1781274158,vhdl,,,,reg_en_rst,,,,,,,,
